@@ -1,0 +1,455 @@
+[2022-12-14 01:11:34] This is codeql database create codeql_db_javascript --language=javascript
+[2022-12-14 01:11:34] Log file was started late.
+[2022-12-14 01:11:34] [PROGRESS] database create> Initializing database at /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/codeql_db_javascript.
+[2022-12-14 01:11:34] Running plumbing command: codeql database init --language=javascript --source-root=/home/user/asf/cloner/gh/clones/A_gsa_usa-faqs --allow-missing-source-root=false --allow-already-existing -- /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/codeql_db_javascript
+[2022-12-14 01:11:34] [PROGRESS] database init> Computing baseline information in /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs
+[2022-12-14 01:11:34] [PROGRESS] database init> Resolving extractor javascript.
+[2022-12-14 01:11:34] Calling plumbing command: codeql resolve languages --format=json
+[2022-12-14 01:11:34] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /home/user/codeql/codeql/.codeqlmanifest.json
+[2022-12-14 01:11:34] [DETAILS] resolve languages> Parsing /home/user/codeql/codeql/cpp/codeql-extractor.yml.
+[2022-12-14 01:11:34] [DETAILS] resolve languages> Parsing /home/user/codeql/codeql/javascript/codeql-extractor.yml.
+[2022-12-14 01:11:34] [DETAILS] resolve languages> Parsing /home/user/codeql/codeql/python/codeql-extractor.yml.
+[2022-12-14 01:11:34] [DETAILS] resolve languages> Parsing /home/user/codeql/codeql/html/codeql-extractor.yml.
+[2022-12-14 01:11:34] [DETAILS] resolve languages> Parsing /home/user/codeql/codeql/properties/codeql-extractor.yml.
+[2022-12-14 01:11:34] [DETAILS] resolve languages> Parsing /home/user/codeql/codeql/go/codeql-extractor.yml.
+[2022-12-14 01:11:34] [DETAILS] resolve languages> Parsing /home/user/codeql/codeql/ruby/codeql-extractor.yml.
+[2022-12-14 01:11:34] [DETAILS] resolve languages> Parsing /home/user/codeql/codeql/csharp/codeql-extractor.yml.
+[2022-12-14 01:11:34] [DETAILS] resolve languages> Parsing /home/user/codeql/codeql/xml/codeql-extractor.yml.
+[2022-12-14 01:11:34] [DETAILS] resolve languages> Parsing /home/user/codeql/codeql/java/codeql-extractor.yml.
+[2022-12-14 01:11:34] [DETAILS] resolve languages> Parsing /home/user/codeql/codeql/csv/codeql-extractor.yml.
+[2022-12-14 01:11:34] Plumbing command codeql resolve languages completed:
+                      {
+                        "extractors" : {
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/home/user/codeql/codeql/cpp"
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/home/user/codeql/codeql/javascript",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/home/user/codeql/codeql/python"
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/home/user/codeql/codeql/html"
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/home/user/codeql/codeql/properties"
+                            }
+                          ],
+                          "go" : [
+                            {
+                              "extractor_root" : "/home/user/codeql/codeql/go"
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/home/user/codeql/codeql/ruby"
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/home/user/codeql/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction.",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "cil" : {
+                                  "title" : "Whether to enable CIL extraction.",
+                                  "description" : "A value indicating, whether CIL extraction should be enabled. The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/home/user/codeql/codeql/xml"
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/home/user/codeql/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis.\n",
+                                  "type" : "string"
+                                }
+                              }
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/home/user/codeql/codeql/csv"
+                            }
+                          ]
+                        }
+                      }
+[2022-12-14 01:11:34] [DETAILS] database init> Found candidate extractor root for javascript: /home/user/codeql/codeql/javascript.
+[2022-12-14 01:11:34] [PROGRESS] database init> Successfully loaded extractor JavaScript (javascript) from /home/user/codeql/codeql/javascript.
+[2022-12-14 01:11:34] [PROGRESS] database init> Created skeleton CodeQL database at /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/codeql_db_javascript. This in-progress database is ready to be populated by an extractor.
+[2022-12-14 01:11:34] Plumbing command codeql database init completed.
+[2022-12-14 01:11:34] [PROGRESS] database create> Running build command: []
+[2022-12-14 01:11:34] Running plumbing command: codeql database trace-command --working-dir=/home/user/asf/cloner/gh/clones/A_gsa_usa-faqs --index-traceless-dbs --no-db-cluster -- /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/codeql_db_javascript
+[2022-12-14 01:11:34] Using autobuild script /home/user/codeql/codeql/javascript/tools/autobuild.sh.
+[2022-12-14 01:11:34] [PROGRESS] database trace-command> Running command in /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs: [/home/user/codeql/codeql/javascript/tools/autobuild.sh]
+[2022-12-14 01:11:34] [build-stdout] Single-threaded extraction.
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/cubrid/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/cubrid/index.html (46 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/mssql/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/mssql/index.html (2 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/mysql/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/mysql/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/mysqli/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/mysqli/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/oci8/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/oci8/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/odbc/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/odbc/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/pdo/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/pdo/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/postgre/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/postgre/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/sqlite/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/sqlite/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/sqlsrv/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/sqlsrv/index.html (2 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/language/english/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/language/english/index.html (2 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/drivers/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/language/english/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/language/english/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/cache/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/cache/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/config/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/config/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/controllers/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/controllers/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/core/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/core/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/errors/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/errors/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/helpers/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/helpers/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/hooks/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/hooks/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/libraries/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/libraries/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/logs/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/logs/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/models/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/models/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/third_party/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/third_party/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/views/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/views/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/mockup/img/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/mockup/img/index.html (5 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/core/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/core/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/database/index.html (0 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/fonts/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/fonts/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/helpers/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/helpers/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/language/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/language/index.html (0 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/libraries/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/libraries/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/application/index.html (0 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/mockup/form.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/mockup/form.html (101 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/mockup/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/mockup/index.html (15 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/mockup/school_landing.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/mockup/school_landing.html (5 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/index.html
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/system/index.html (1 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/mockup/js/bootstrap.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/mockup/js/bootstrap.js (296 ms)
+[2022-12-14 01:11:35] [build-stderr] No externs trap cache found
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/gecko_ext.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/gecko_ext.js (5 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_permissions.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_permissions.js (8 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/gecko_dom.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/gecko_dom.js (53 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/webkit_usercontent.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/webkit_usercontent.js (2 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/webstorage.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/webstorage.js (7 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/fileapi.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/fileapi.js (59 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_xml.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_xml.js (18 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/webkit_css.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/webkit_css.js (57 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_range.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_range.js (10 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_indexeddb.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_indexeddb.js (37 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/whatwg_encoding.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/whatwg_encoding.js (3 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_css3d.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_css3d.js (7 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/mediasource.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/mediasource.js (8 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_dom2.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_dom2.js (101 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/gecko_event.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/gecko_event.js (5 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/window.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/window.js (7 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/webkit_notifications.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/webkit_notifications.js (12 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/streamsapi.js
+[2022-12-14 01:11:35] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/streamsapi.js (50 ms)
+[2022-12-14 01:11:35] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_rtc.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_rtc.js (112 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_midi.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_midi.js (14 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/gecko_xml.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/gecko_xml.js (3 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_event3.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_event3.js (4 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_gamepad.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_gamepad.js (4 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/intl.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/intl.js (13 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/page_visibility.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/page_visibility.js (1 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_dom3.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_dom3.js (41 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/webgl.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/webgl.js (174 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/ie_dom.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/ie_dom.js (57 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/ie_css.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/ie_css.js (14 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/chrome.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/chrome.js (31 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_requestidlecallback.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_requestidlecallback.js (2 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_dom4.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_dom4.js (2 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_anim_timing.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_anim_timing.js (5 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_css.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_css.js (96 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_elementtraversal.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_elementtraversal.js (3 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_dom1.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_dom1.js (46 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_pointer_events.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_pointer_events.js (5 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/webkit_event.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/webkit_event.js (1 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/ie_vml.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/ie_vml.js (3 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_encoding.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_encoding.js (3 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_serviceworker.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_serviceworker.js (29 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_device_sensor_event.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_device_sensor_event.js (5 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_event.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_event.js (25 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/url.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/url.js (7 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_screen_orientation.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_screen_orientation.js (2 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_batterystatus.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_batterystatus.js (2 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_webcrypto.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_webcrypto.js (19 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/fetchapi.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/fetchapi.js (27 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_touch_event.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_touch_event.js (9 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/html5.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/html5.js (171 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/iphone.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/iphone.js (7 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/ie_event.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/ie_event.js (12 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/flash.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/flash.js (9 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/webkit_dom.js
+[2022-12-14 01:11:36] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/webkit_dom.js (13 ms)
+[2022-12-14 01:11:36] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_geolocation.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_geolocation.js (5 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_navigation_timing.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_navigation_timing.js (15 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/gecko_css.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/gecko_css.js (10 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_selectors.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/web/w3c_selectors.js (4 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/cluster.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/cluster.js (52 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/string_decoder.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/string_decoder.js (4 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/console.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/console.js (1 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/punycode.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/punycode.js (4 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/http.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/http.js (29 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/tty.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/tty.js (5 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/globals.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/globals.js (88 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/child_process.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/child_process.js (44 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/path.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/path.js (15 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/buffer.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/buffer.js (6 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/v8.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/v8.js (4 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/dgram.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/dgram.js (10 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/querystring.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/querystring.js (5 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/readline.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/readline.js (11 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/os.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/os.js (13 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/assert_legacy.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/assert_legacy.js (1 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/tls.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/tls.js (26 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/https.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/https.js (10 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/constants.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/constants.js (78 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/dns.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/dns.js (15 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/events.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/events.js (7 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/module.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/module.js (3 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/crypto.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/crypto.js (47 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/repl.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/repl.js (5 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/timers.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/timers.js (5 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/domain.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/domain.js (4 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/sys.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/sys.js (1 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/vm.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/vm.js (10 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/fs.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/fs.js (107 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/url.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/url.js (7 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/util.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/util.js (14 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/stream.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/stream.js (42 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/assert.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/assert.js (7 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/zlib.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/zlib.js (20 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/net.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/net.js (24 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/process.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/nodejs/process.js (1 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/es6_collections.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/es6_collections.js (6 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/es2017.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/es2017.js (2 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/es2016.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/es2016.js (1 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/intl.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/intl.js (7 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/es6.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/es6.js (55 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/es3.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/es3.js (87 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/es5.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/es5.js (8 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/proxy.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/es/proxy.js (1 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/vm/spidermonkey.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/vm/spidermonkey.js (1 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/vm/v8.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/vm/v8.js (4 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/vm/rhino.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/vm/rhino.js (3 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/vm/jsshell.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/vm/jsshell.js (26 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/lib/bdd.js
+[2022-12-14 01:11:37] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/lib/bdd.js (3 ms)
+[2022-12-14 01:11:37] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/lib/jquery-3.2.js
+[2022-12-14 01:11:38] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/lib/jquery-3.2.js (95 ms)
+[2022-12-14 01:11:38] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/lib/should.js
+[2022-12-14 01:11:38] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/lib/should.js (10 ms)
+[2022-12-14 01:11:38] [build-stdout] Extracting /home/user/codeql/codeql/javascript/tools/data/externs/lib/vows.js
+[2022-12-14 01:11:38] [build-stdout] Done extracting /home/user/codeql/codeql/javascript/tools/data/externs/lib/vows.js (13 ms)
+[2022-12-14 01:11:38] Plumbing command codeql database trace-command completed.
+[2022-12-14 01:11:38] [PROGRESS] database create> Finalizing database at /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/codeql_db_javascript.
+[2022-12-14 01:11:38] Running plumbing command: codeql database finalize --mode=normal --no-db-cluster -- /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/codeql_db_javascript
+[2022-12-14 01:11:38] [PROGRESS] database finalize> Running TRAP import for CodeQL database at /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/codeql_db_javascript...
+[2022-12-14 01:11:38] Running plumbing command: codeql dataset import --dbscheme=/home/user/codeql/codeql/javascript/semmlecode.javascript.dbscheme -- /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/codeql_db_javascript/db-javascript /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/codeql_db_javascript/trap/javascript
+[2022-12-14 01:11:38] Clearing disk cache since the version file /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/codeql_db_javascript/db-javascript/default/cache/version does not exist
+[2022-12-14 01:11:38] Tuple pool not found. Clearing relations with cached strings
+[2022-12-14 01:11:38] Trimming disk cache at /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/codeql_db_javascript/db-javascript/default/cache in mode brutal.
+[2022-12-14 01:11:38] Sequence stamp origin is -6377111184399146174
+[2022-12-14 01:11:38] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2022-12-14 01:11:38] Unpausing evaluation
+[2022-12-14 01:11:38] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2022-12-14 01:11:38] Unpausing evaluation
+[2022-12-14 01:11:38] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2022-12-14 01:11:38] Unpausing evaluation
+[2022-12-14 01:11:38] Trimming completed (6ms): Purged everything.
+[2022-12-14 01:11:38] Scanning for files in /home/user/asf/cloner/gh/clones/A_gsa_usa-faqs/codeql_db_javascript/trap/javascript
+[2022-12-14 01:11:38] Importing index.html.trap.gz (1 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (2 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (3 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (4 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (5 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (6 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (7 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (8 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (9 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (10 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (11 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (12 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (13 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (14 of 149)
+[2022-12-14 01:11:38] Importing form.html.trap.gz (15 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (16 of 149)
+[2022-12-14 01:11:38] Importing index.html.trap.gz (17 of 149)
+[2022-12-14 01:11:38] Importing bootstrap.js.trap.gz (18 of 149)
